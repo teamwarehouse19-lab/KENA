@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pilih Kabin | KENA Nature Cabins</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f1e9;
+      color: #183025;
+    }
+
+    header {
+      background: #173326;
+      color: white;
+      padding: 22px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      letter-spacing: 8px;
+    }
+
+    .back {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 50px 25px 70px;
+    }
+
+    .step {
+      color: #9a7a4c;
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #68756e;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .stay-info {
+      display: inline-block;
+      background: #e8e2d5;
+      padding: 12px 18px;
+      border-radius: 50px;
+      margin-bottom: 35px;
+      font-size: 14px;
+    }
+
+    .cabins {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .cabin-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+
+    .cabin-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .cabin-image {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cabin-content {
+      padding: 22px;
+    }
+
+    .type {
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #9a7a4c;
+      margin-bottom: 8px;
+    }
+
+    .cabin-name {
+      font-family: Georgia, serif;
+      font-size: 32px;
+      font-weight: normal;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #68756e;
+      line-height: 1.6;
+      font-size: 14px;
+      min-height: 68px;
+    }
+
+    .features {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 18px 0;
+      margin-top: 12px;
+      border-top: 1px solid #ece8df;
+      font-size: 12px;
+    }
+
+    .price {
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: #68756e;
+    }
+
+    .price strong {
+      font-family: Georgia, serif;
+      font-size: 23px;
+      color: #183025;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      background: #173326;
+      color: white;
+      padding: 15px;
+      border-radius: 50px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #234a38;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 800px) {
+
+      header {
+        padding: 20px;
+      }
+
+      .logo {
+        font-size: 25px;
+        letter-spacing: 7px;
+      }
+
+      .back {
+        font-size: 11px;
+      }
+
+      main {
+        padding: 35px 18px 55px;
+      }
+
+      .cabins {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 39px;
+      }
+
+      .cabin-image {
+        height: 260px;
+      }
+
+      .description {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<header>
+
+  <div class="logo">
+    KENA
+  </div>
+
+  <a href="booking.html" class="back">
+    ← UBAH TANGGAL
+  </a>
+
+</header>
+
+
+<main>
+
+  <div class="step">
+    LANGKAH 02 · PILIH KABIN
+  </div>
+
+  <h1>
+    Temukan kabin pilihan Anda.
+  </h1>
+
+  <p class="subtitle">
+    Tiga kabin deluxe pribadi. Pilih kabin yang paling sesuai untuk pengalaman menginap Anda.
+  </p>
+
+
+  <div class="stay-info" id="stayInfo">
+    Memuat detail menginap...
+  </div>
+
+
+  <section class="cabins">
+
+    <!-- SORA -->
+
+    <article class="cabin-card">
+
+      <img
+        class="cabin-image"
+        src="https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=900&q=80"
+        alt="Kabin Sora"
+      >
+
+      <div class="cabin-content">
+
+        <div class="type">
+          KABIN DELUXE
+        </div>
+
+        <h2 class="cabin-name">
+          Sora
+        </h2>
+
+        <p class="description">
+          Kabin privat yang tenang, dirancang untuk menikmati pagi
+          yang santai dan malam yang damai di tengah alam.
+        </p>
+
+        <div class="features">
+          <span>👤 2 Tamu</span>
+          <span>🛏 1 Tempat Tidur</span>
+          <span>♨ Bathtub</span>
+        </div>
+
+        <div class="price">
+          Mulai dari
+          <strong>Rp 1.250.000</strong>
+          / malam
+        </div>
+
+        <button onclick="lihatKabin('sora.html')">
+          LIHAT SORA →
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <!-- NARA -->
+
+    <article class="cabin-card">
+
+      <img
+        class="cabin-image"
+        src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=900&q=80"
+        alt="Kabin Nara"
+      >
+
+      <div class="cabin-content">
+
+        <div class="type">
+          KABIN DELUXE
+        </div>
+
+        <h2 class="cabin-name">
+          Nara
+        </h2>
+
+        <p class="description">
+          Tempat beristirahat yang hangat dengan suasana tenang
+          untuk pasangan yang ingin kembali menikmati kedekatan dengan alam.
+        </p>
+
+        <div class="features">
+          <span>👤 2 Tamu</span>
+          <span>🛏 1 Tempat Tidur</span>
+          <span>♨ Bathtub</span>
+        </div>
+
+        <div class="price">
+          Mulai dari
+          <strong>Rp 1.250.000</strong>
+          / malam
+        </div>
+
+        <button onclick="lihatKabin('nara.html')">
+          LIHAT NARA →
+        </button>
+
+      </div>
+
+    </article>
+
+
+    <!-- KAI -->
+
+    <article class="cabin-card">
+
+      <img
+        class="cabin-image"
+        src="https://images.unsplash.com/photo-1520984032042-162d526883e0?auto=format&fit=crop&w=900&q=80"
+        alt="Kabin Kai"
+      >
+
+      <div class="cabin-content">
+
+        <div class="type">
+          KABIN DELUXE
+        </div>
+
+        <h2 class="cabin-name">
+          Kai
+        </h2>
+
+        <p class="description">
+          Kabin privat di tengah alam dengan segala yang Anda butuhkan
+          untuk menikmati masa menginap yang nyaman di Baturraden.
+        </p>
+
+        <div class="features">
+          <span>👤 2 Tamu</span>
+          <span>🛏 1 Tempat Tidur</span>
+          <span>♨ Bathtub</span>
+        </div>
+
+        <div class="price">
+          Mulai dari
+          <strong>Rp 1.250.000</strong>
+          / malam
+        </div>
+
+        <button onclick="lihatKabin('kai.html')">
+          LIHAT KAI →
+        </button>
+
+      </div>
+
+    </article>
+
+  </section>
+
+</main>
+
+
+<script>
+
+  const checkin =
+    localStorage.getItem("kenaCheckin");
+
+  const checkout =
+    localStorage.getItem("kenaCheckout");
+
+
+  function formatDate(date) {
+
+    if (!date) {
+      return "-";
+    }
+
+    return new Date(
+      date + "T00:00:00"
+    ).toLocaleDateString(
+      "id-ID",
+      {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+      }
+    );
+  }
+
+
+  document.getElementById("stayInfo").innerText =
+    "Baturraden · " +
+    formatDate(checkin) +
+    " → " +
+    formatDate(checkout) +
+    " · 2 Tamu";
+
+
+  function lihatKabin(halaman) {
+
+    window.location.href =
+      halaman;
+  }
+
+</script>
+
+</body>
+
+</html>

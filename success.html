@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pemesanan Berhasil | KENA Nature Cabins</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f4f1e8;
+            color: #193528;
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+
+        header {
+            height: 86px;
+            background: #193528;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            color: white;
+            font-family: Georgia, serif;
+            font-size: 32px;
+            letter-spacing: 9px;
+        }
+
+        /* MAIN */
+
+        main {
+            width: 680px;
+            max-width: calc(100% - 40px);
+            margin: 60px auto;
+        }
+
+        /* CARD */
+
+        .success-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 45px;
+
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ICON */
+
+        .check-icon {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #193528;
+            color: white;
+
+            font-size: 32px;
+        }
+
+        /* HEADER CONTENT */
+
+        .label {
+            color: #9b7845;
+
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 4px;
+
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 46px;
+            font-weight: normal;
+
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #66736d;
+
+            line-height: 1.7;
+
+            margin-bottom: 35px;
+        }
+
+        /* BOOKING CODE */
+
+        .booking-code {
+            background: #f4f1e8;
+
+            border-radius: 15px;
+
+            padding: 20px;
+
+            margin-bottom: 30px;
+        }
+
+        .booking-code span {
+            display: block;
+
+            color: #6d7771;
+
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            margin-bottom: 7px;
+        }
+
+        .booking-code strong {
+            font-family: Georgia, serif;
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        /* DETAIL */
+
+        .booking-details {
+            border-top: 1px solid #e5e2da;
+
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            color: #9b7845;
+
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            padding-top: 25px;
+            padding-bottom: 7px;
+        }
+
+        .booking-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 17px 0;
+
+            border-bottom: 1px solid #e5e2da;
+        }
+
+        .booking-row span {
+            color: #6d7771;
+            font-size: 14px;
+        }
+
+        .booking-row strong {
+            color: #193528;
+
+            text-align: right;
+
+            font-size: 15px;
+
+            overflow-wrap: anywhere;
+        }
+
+        /* TOTAL */
+
+        .booking-row.total {
+            padding-top: 22px;
+        }
+
+        .booking-row.total span {
+            color: #193528;
+
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .booking-row.total strong {
+            font-family: Georgia, serif;
+            font-size: 24px;
+        }
+
+        /* BUTTON */
+
+        .home-button {
+            display: block;
+
+            width: 100%;
+
+            padding: 19px 25px;
+
+            background: #193528;
+            color: white;
+
+            border-radius: 50px;
+
+            text-align: center;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+
+            transition: 0.25s;
+        }
+
+        .home-button:hover {
+            background: #274b39;
+
+            transform: translateY(-2px);
+        }
+
+        /* NOTE */
+
+        .note {
+            text-align: center;
+
+            color: #7a847e;
+
+            font-size: 12px;
+            line-height: 1.6;
+
+            margin-top: 20px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 76px;
+            }
+
+            .logo {
+                font-size: 26px;
+                letter-spacing: 7px;
+            }
+
+            main {
+                width: auto;
+                max-width: none;
+
+                margin: 30px 18px;
+            }
+
+            .success-card {
+                padding: 30px 22px;
+
+                border-radius: 20px;
+            }
+
+            .check-icon {
+                width: 60px;
+                height: 60px;
+
+                font-size: 27px;
+            }
+
+            h1 {
+                font-size: 37px;
+            }
+
+            .intro {
+                font-size: 14px;
+            }
+
+            .booking-code strong {
+                font-size: 22px;
+            }
+
+            .booking-row {
+                align-items: flex-start;
+            }
+
+            .booking-row strong {
+                max-width: 60%;
+            }
+
+            .booking-row.total strong {
+                font-size: 21px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            KENA
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="success-card">
+
+
+            <!-- TANDA BERHASIL -->
+
+            <div class="check-icon">
+                ✓
+            </div>
+
+
+            <div class="label">
+                RESERVASI KENA
+            </div>
+
+
+            <h1>
+                Pemesanan Berhasil
+            </h1>
+
+
+            <p class="intro">
+                Terima kasih. Reservasi Anda di KENA telah diterima.
+                Simpan kode booking berikut sebagai referensi pemesanan Anda.
+            </p>
+
+
+            <!-- KODE BOOKING -->
+
+            <div class="booking-code">
+
+                <span>
+                    KODE BOOKING
+                </span>
+
+                <strong id="bookingCode">
+                    KENA-0000
+                </strong>
+
+            </div>
+
+
+            <!-- DETAIL -->
+
+            <div class="booking-details">
+
+
+                <!-- DATA TAMU -->
+
+                <div class="section-label">
+                    DATA TAMU
+                </div>
+
+
+                <div class="booking-row">
+
+                    <span>
+                        Nama Tamu
+                    </span>
+
+                    <strong id="guestName">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-row">
+
+                    <span>
+                        WhatsApp
+                    </span>
+
+                    <strong id="guestPhone">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-row">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="guestEmail">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <!-- DETAIL RESERVASI -->
+
+                <div class="section-label">
+                    DETAIL RESERVASI
+                </div>
+
+
+                <div class="booking-row">
+
+                    <span>
+                        Kabin
+                    </span>
+
+                    <strong id="cabinName">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-row">
+
+                    <span>
+                        Check-in
+                    </span>
+
+                    <strong id="checkinDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-row">
+
+                    <span>
+                        Check-out
+                    </span>
+
+                    <strong id="checkoutDate">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-row">
+
+                    <span>
+                        Tamu
+                    </span>
+
+                    <strong>
+                        2 Tamu
+                    </strong>
+
+                </div>
+
+
+                <div class="booking-row total">
+
+                    <span>
+                        Total Pembayaran
+                    </span>
+
+                    <strong id="totalPrice">
+                        Rp 0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEMBALI -->
+
+            <a
+                href="index.html"
+                class="home-button"
+            >
+                KEMBALI KE BERANDA →
+            </a>
+
+
+            <p class="note">
+                Informasi mengenai pembayaran dan konfirmasi reservasi
+                akan diberikan pada tahap berikutnya.
+            </p>
+
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /* =========================
+           DATA RESERVASI
+        ========================= */
+
+        const cabin =
+            localStorage.getItem("kenaCabin");
+
+        const price =
+            localStorage.getItem("kenaPrice");
+
+        const checkin =
+            localStorage.getItem("kenaCheckin");
+
+        const checkout =
+            localStorage.getItem("kenaCheckout");
+
+
+        /* =========================
+           DATA TAMU
+        ========================= */
+
+        const guestName =
+            localStorage.getItem("kenaGuestName");
+
+        const guestPhone =
+            localStorage.getItem("kenaGuestPhone");
+
+        const guestEmail =
+            localStorage.getItem("kenaGuestEmail");
+
+
+        /* =========================
+           FORMAT TANGGAL
+        ========================= */
+
+        function formatTanggal(tanggal) {
+
+            if (!tanggal) {
+                return "-";
+            }
+
+
+            const bulan = [
+                "Januari",
+                "Februari",
+                "Maret",
+                "April",
+                "Mei",
+                "Juni",
+                "Juli",
+                "Agustus",
+                "September",
+                "Oktober",
+                "November",
+                "Desember"
+            ];
+
+
+            const [tahun, bulanAngka, hari] =
+                tanggal.split("-");
+
+
+            return `${hari} ${bulan[Number(bulanAngka) - 1]} ${tahun}`;
+        }
+
+
+        /* =========================
+           KODE BOOKING
+        ========================= */
+
+        function buatKodeBooking() {
+
+            let kode =
+                localStorage.getItem(
+                    "kenaBookingCode"
+                );
+
+
+            if (!kode) {
+
+                const angka =
+                    Math.floor(
+                        1000 +
+                        Math.random() * 9000
+                    );
+
+
+                kode =
+                    "KENA-" + angka;
+
+
+                localStorage.setItem(
+                    "kenaBookingCode",
+                    kode
+                );
+            }
+
+
+            return kode;
+        }
+
+
+        /* =========================
+           TAMPILKAN DATA
+        ========================= */
+
+        document.getElementById(
+            "bookingCode"
+        ).textContent =
+            buatKodeBooking();
+
+
+        document.getElementById(
+            "guestName"
+        ).textContent =
+            guestName || "-";
+
+
+        document.getElementById(
+            "guestPhone"
+        ).textContent =
+            guestPhone || "-";
+
+
+        /*
+            Email memang opsional.
+
+            Jika tamu tidak mengisi email,
+            halaman akan menampilkan "-".
+        */
+
+        document.getElementById(
+            "guestEmail"
+        ).textContent =
+            guestEmail || "-";
+
+
+        document.getElementById(
+            "cabinName"
+        ).textContent =
+            cabin || "-";
+
+
+        document.getElementById(
+            "checkinDate"
+        ).textContent =
+            formatTanggal(checkin);
+
+
+        document.getElementById(
+            "checkoutDate"
+        ).textContent =
+            formatTanggal(checkout);
+
+
+        document.getElementById(
+            "totalPrice"
+        ).textContent =
+            price
+                ? "Rp " +
+                  Number(price).toLocaleString(
+                      "id-ID"
+                  )
+                : "Rp 0";
+
+    </script>
+
+</body>
+
+</html>

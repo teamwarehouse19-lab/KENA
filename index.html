@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KENA Nature Cabins</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0e2118;
+      color: #ffffff;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 35px 25px;
+      background:
+  linear-gradient(
+    to bottom,
+    rgba(8, 25, 18, 0.05),
+    rgba(8, 25, 18, 0.45)
+  ),
+        url("https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?auto=format&fit=crop&w=1600&q=85");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .logo {
+  text-align: right;
+  letter-spacing: 10px;
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: normal;
+  color: #ffffff;
+
+  text-shadow:
+    0 2px 4px rgba(0,0,0,1),
+    0 4px 12px rgba(0,0,0,0.9);
+}
+
+.location {
+  text-align: right;
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+        .content {
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      font-size: 13px;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+      color: #e5cda5;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(46px, 8vw, 82px);
+      line-height: 0.95;
+      font-weight: normal;
+      margin-bottom: 22px;
+    }
+
+    .description {
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 500px;
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .book-button {
+      display: inline-block;
+      background: #e8c898;
+      color: #15251d;
+      text-decoration: none;
+      padding: 18px 30px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: 0.3s;
+    }
+
+    .book-button:hover {
+      transform: translateY(-3px);
+      background: #f1d8b1;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      border-top: 1px solid rgba(255,255,255,0.25);
+      padding-top: 22px;
+      max-width: 650px;
+    }
+
+    .feature {
+      font-size: 12px;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .feature strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 28px 20px;
+      }
+
+      .content {
+        margin-bottom: 25px;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+
+      .description {
+        font-size: 15px;
+      }
+
+      .book-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="hero">
+
+    <header>
+      <div class="logo">KENA</div>
+      <div class="location">NATURE CABINS · BATURRADEN</div>
+    </header>
+
+    <section class="content">
+
+      <div class="tag">LEBIH DEKAT DENGAN ALAM</div>
+
+      <h1>
+        Menepi<br>
+        Ke Alam
+      </h1>
+
+      <p class="description">
+        Cabin pribadi modern yang dikelilingi ketenangan alam Baturraden. Nikmati waktu dengan lebih perlahan, hirup udara segar, dan rasakan pengalaman menginap yang dirancang untuk menciptakan momen-momen berkesan.
+      </p>
+
+      <a href="booking.html" class="book-button">
+        PESAN SEKARANG →
+      </a>
+
+    </section>
+
+    <section class="features">
+
+      <div class="feature">
+        <strong>03</strong>
+        Kabin Deluxe
+      </div>
+
+      <div class="feature">
+        <strong>♢</strong>
+        Pemandangan Gunung
+      </div>
+
+      <div class="feature">
+        <strong>♨</strong>
+        Bathtub Pribadi
+      </div>
+
+      <div class="feature">
+        <strong>2</strong>
+        Tamu / Kabin
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>

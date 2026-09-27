@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | KENA Nature Cabins</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f4f1e8;
+            color: #193528;
+            font-family: Arial, sans-serif;
+        }
+
+        /* HEADER */
+
+        header {
+            height: 86px;
+            background: #193528;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+        }
+
+        .logo {
+            color: white;
+            font-family: Georgia, serif;
+            font-size: 32px;
+            letter-spacing: 9px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* MAIN */
+
+        main {
+            width: 760px;
+            max-width: calc(100% - 40px);
+            margin: 70px auto;
+        }
+
+        .step {
+            color: #9b7845;
+            font-size: 13px;
+            letter-spacing: 4px;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 52px;
+            font-weight: normal;
+            margin-bottom: 14px;
+        }
+
+        main > p {
+            color: #66736d;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* CARD */
+
+        .guest-card,
+        .booking-card {
+            margin-top: 35px;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 35px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .guest-card h2,
+        .booking-card h2 {
+            font-family: Georgia, serif;
+            font-size: 26px;
+            font-weight: normal;
+            margin-bottom: 25px;
+        }
+
+        /* FORM */
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #193528;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .optional {
+            color: #7a847e;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 17px;
+
+            background: #f8f6f0;
+            color: #193528;
+
+            border: 1px solid #dedbd2;
+            border-radius: 10px;
+
+            font-size: 15px;
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+        .form-group input:focus {
+            background: #ffffff;
+            border-color: #193528;
+        }
+
+        /* ERROR */
+
+        .form-group input.input-error {
+            border-color: #b64b4b;
+            background: #fff8f8;
+        }
+
+        .error-message {
+            display: none;
+            margin-top: 7px;
+
+            color: #b64b4b;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        /* HAPUS DATA */
+
+        .clear-data-button {
+            margin-top: 2px;
+            padding: 0;
+
+            background: transparent;
+            color: #7a847e;
+
+            border: none;
+
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .clear-data-button:hover {
+            color: #b64b4b;
+        }
+
+        /* RINGKASAN */
+
+        .booking-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 17px 0;
+
+            border-bottom: 1px solid #e8e5dd;
+        }
+
+        .booking-row span {
+            color: #6b756f;
+            font-size: 14px;
+        }
+
+        .booking-row strong {
+            color: #193528;
+            font-size: 15px;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .booking-row.total {
+            margin-top: 8px;
+            padding-top: 24px;
+            border-bottom: none;
+        }
+
+        .booking-row.total span {
+            color: #193528;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .booking-row.total strong {
+            color: #193528;
+            font-family: Georgia, serif;
+            font-size: 25px;
+        }
+
+        /* KONFIRMASI */
+
+        .confirm-button {
+            width: 100%;
+
+            margin-top: 25px;
+            padding: 19px 25px;
+
+            background: #193528;
+            color: white;
+
+            border: none;
+            border-radius: 50px;
+
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+
+            cursor: pointer;
+
+            transition: 0.25s;
+        }
+
+        .confirm-button:hover {
+            background: #274b39;
+            transform: translateY(-2px);
+        }
+
+        .confirm-button:active {
+            transform: translateY(0);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            header {
+                height: 76px;
+                padding: 0 20px;
+            }
+
+            .logo {
+                font-size: 26px;
+                letter-spacing: 7px;
+            }
+
+            header a {
+                font-size: 11px;
+            }
+
+            main {
+                margin: 40px auto;
+            }
+
+            h1 {
+                font-size: 39px;
+            }
+
+            .step {
+                font-size: 11px;
+                letter-spacing: 3px;
+            }
+
+            .guest-card,
+            .booking-card {
+                padding: 24px 20px;
+            }
+
+            .booking-row {
+                align-items: flex-start;
+            }
+
+            .booking-row strong {
+                max-width: 60%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            KENA
+        </div>
+
+        <a href="cabins.html">
+            ← KEMBALI KE KABIN
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <div class="step">
+            LANGKAH 03 · CHECKOUT
+        </div>
+
+
+        <h1>
+            Selesaikan pemesanan Anda.
+        </h1>
+
+
+        <p>
+            Periksa kembali detail reservasi Anda sebelum
+            menyelesaikan pemesanan.
+        </p>
+
+
+        <!-- =========================
+             DATA TAMU
+        ========================== -->
+
+        <div class="guest-card">
+
+            <h2>
+                Data Tamu
+            </h2>
+
+
+            <!-- NAMA -->
+
+            <div class="form-group">
+
+                <label for="guestName">
+                    Nama Lengkap
+                </label>
+
+                <input
+                    type="text"
+                    id="guestName"
+                    placeholder="Masukkan nama lengkap"
+                    autocomplete="name"
+                >
+
+                <div
+                    class="error-message"
+                    id="guestNameError"
+                ></div>
+
+            </div>
+
+
+            <!-- WHATSAPP -->
+
+            <div class="form-group">
+
+                <label for="guestPhone">
+                    Nomor WhatsApp
+                </label>
+
+                <input
+                    type="tel"
+                    id="guestPhone"
+                    placeholder="Contoh: 081234567890"
+                    autocomplete="tel"
+                    inputmode="tel"
+                >
+
+                <div
+                    class="error-message"
+                    id="guestPhoneError"
+                ></div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="guestEmail">
+                    Email
+                    <span class="optional">
+                        (Opsional)
+                    </span>
+                </label>
+
+                <input
+                    type="email"
+                    id="guestEmail"
+                    placeholder="nama@email.com"
+                    autocomplete="email"
+                    inputmode="email"
+                >
+
+                <div
+                    class="error-message"
+                    id="guestEmailError"
+                ></div>
+
+            </div>
+
+
+            <!-- HAPUS DATA -->
+
+            <button
+                type="button"
+                class="clear-data-button"
+                onclick="hapusDataTamu()"
+            >
+                HAPUS DATA TERSIMPAN
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             RINGKASAN PEMESANAN
+        ========================== -->
+
+        <div class="booking-card">
+
+            <h2>
+                Ringkasan Pemesanan
+            </h2>
+
+
+            <div class="booking-row">
+
+                <span>
+                    Kabin
+                </span>
+
+                <strong id="cabinName">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <span>
+                    Check-in
+                </span>
+
+                <strong id="checkinDate">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <span>
+                    Check-out
+                </span>
+
+                <strong id="checkoutDate">
+                    -
+                </strong>
+
+            </div>
+
+
+            <div class="booking-row">
+
+                <span>
+                    Tamu
+                </span>
+
+                <strong>
+                    2 Tamu
+                </strong>
+
+            </div>
+
+
+            <div class="booking-row total">
+
+                <span>
+                    Total
+                </span>
+
+                <strong id="totalPrice">
+                    Rp 0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- KONFIRMASI -->
+
+        <button
+            type="button"
+            class="confirm-button"
+            onclick="confirmBooking()"
+        >
+            KONFIRMASI PEMESANAN →
+        </button>
+
+    </main>
+
+
+    <script>
+
+        /* =========================
+           DATA RESERVASI
+        ========================= */
+
+        const cabin =
+            localStorage.getItem("kenaCabin");
+
+        const price =
+            localStorage.getItem("kenaPrice");
+
+        const checkin =
+            localStorage.getItem("kenaCheckin");
+
+        const checkout =
+            localStorage.getItem("kenaCheckout");
+
+
+        /* =========================
+           FORMAT TANGGAL
+        ========================= */
+
+        function formatTanggal(tanggal) {
+
+            if (!tanggal) {
+                return "-";
+            }
+
+            const bulan = [
+                "Januari",
+                "Februari",
+                "Maret",
+                "April",
+                "Mei",
+                "Juni",
+                "Juli",
+                "Agustus",
+                "September",
+                "Oktober",
+                "November",
+                "Desember"
+            ];
+
+
+            const [tahun, bulanAngka, hari] =
+                tanggal.split("-");
+
+
+            return `${hari} ${bulan[Number(bulanAngka) - 1]} ${tahun}`;
+        }
+
+
+        /* =========================
+           TAMPILKAN RESERVASI
+        ========================= */
+
+        document.getElementById("cabinName").textContent =
+            cabin || "-";
+
+
+        document.getElementById("checkinDate").textContent =
+            formatTanggal(checkin);
+
+
+        document.getElementById("checkoutDate").textContent =
+            formatTanggal(checkout);
+
+
+        document.getElementById("totalPrice").textContent =
+            price
+                ? "Rp " + Number(price).toLocaleString("id-ID")
+                : "Rp 0";
+
+
+        /* =========================
+           DATA TAMU TERSIMPAN
+        ========================= */
+
+        const savedGuestName =
+            localStorage.getItem("kenaGuestName");
+
+        const savedGuestPhone =
+            localStorage.getItem("kenaGuestPhone");
+
+        const savedGuestEmail =
+            localStorage.getItem("kenaGuestEmail");
+
+
+        if (savedGuestName) {
+
+            document.getElementById("guestName").value =
+                savedGuestName;
+        }
+
+
+        if (savedGuestPhone) {
+
+            document.getElementById("guestPhone").value =
+                savedGuestPhone;
+        }
+
+
+        if (savedGuestEmail) {
+
+            document.getElementById("guestEmail").value =
+                savedGuestEmail;
+        }
+
+
+        /* =========================
+           ERROR
+        ========================= */
+
+        function tampilkanError(
+            inputId,
+            errorId,
+            pesan
+        ) {
+
+            const input =
+                document.getElementById(inputId);
+
+            const error =
+                document.getElementById(errorId);
+
+
+            input.classList.add("input-error");
+
+            error.textContent =
+                pesan;
+
+            error.classList.add("show");
+        }
+
+
+        function hapusError(
+            inputId,
+            errorId
+        ) {
+
+            const input =
+                document.getElementById(inputId);
+
+            const error =
+                document.getElementById(errorId);
+
+
+            input.classList.remove("input-error");
+
+            error.textContent =
+                "";
+
+            error.classList.remove("show");
+        }
+
+
+        function hapusSemuaError() {
+
+            hapusError(
+                "guestName",
+                "guestNameError"
+            );
+
+            hapusError(
+                "guestPhone",
+                "guestPhoneError"
+            );
+
+            hapusError(
+                "guestEmail",
+                "guestEmailError"
+            );
+        }
+
+
+        /* =========================
+           HAPUS DATA TAMU
+        ========================= */
+
+        function hapusDataTamu() {
+
+            localStorage.removeItem(
+                "kenaGuestName"
+            );
+
+            localStorage.removeItem(
+                "kenaGuestPhone"
+            );
+
+            localStorage.removeItem(
+                "kenaGuestEmail"
+            );
+
+
+            document.getElementById("guestName").value =
+                "";
+
+            document.getElementById("guestPhone").value =
+                "";
+
+            document.getElementById("guestEmail").value =
+                "";
+
+
+            hapusSemuaError();
+
+
+            document.getElementById("guestName").focus();
+        }
+
+
+        /* =========================
+           VALIDASI NAMA
+        ========================= */
+
+        function validasiNama(nama) {
+
+            if (nama === "") {
+
+                return "Nama lengkap wajib diisi.";
+            }
+
+
+            if (nama.length < 3) {
+
+                return "Nama lengkap minimal 3 karakter.";
+            }
+
+
+            return "";
+        }
+
+
+        /* =========================
+           VALIDASI WHATSAPP
+        ========================= */
+
+        function validasiWhatsApp(phone) {
+
+            if (phone === "") {
+
+                return "Nomor WhatsApp wajib diisi.";
+            }
+
+
+            /*
+                Hapus spasi, tanda minus,
+                dan tanda kurung.
+            */
+
+            const nomorBersih =
+                phone.replace(/[\s\-()]/g, "");
+
+
+            /*
+                Format yang diterima:
+
+                081234567890
+                6281234567890
+                +6281234567890
+            */
+
+            const polaWhatsApp =
+                /^(?:\+62|62|0)8[1-9][0-9]{7,11}$/;
+
+
+            if (!polaWhatsApp.test(nomorBersih)) {
+
+                return "Masukkan nomor WhatsApp yang valid, contoh 081234567890.";
+            }
+
+
+            return "";
+        }
+
+
+        /* =========================
+           VALIDASI EMAIL
+           EMAIL TIDAK WAJIB
+        ========================= */
+
+        function validasiEmail(email) {
+
+            /*
+                Email kosong diperbolehkan.
+            */
+
+            if (email === "") {
+
+                return "";
+            }
+
+
+            /*
+                Kalau email diisi,
+                format harus benar.
+            */
+
+            const polaEmail =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (!polaEmail.test(email)) {
+
+                return "Masukkan alamat email yang valid atau kosongkan kolom email.";
+            }
+
+
+            return "";
+        }
+
+
+        /* =========================
+           HAPUS ERROR SAAT MENGETIK
+        ========================= */
+
+        document
+            .getElementById("guestName")
+            .addEventListener(
+                "input",
+                function () {
+
+                    hapusError(
+                        "guestName",
+                        "guestNameError"
+                    );
+                }
+            );
+
+
+        document
+            .getElementById("guestPhone")
+            .addEventListener(
+                "input",
+                function () {
+
+                    hapusError(
+                        "guestPhone",
+                        "guestPhoneError"
+                    );
+                }
+            );
+
+
+        document
+            .getElementById("guestEmail")
+            .addEventListener(
+                "input",
+                function () {
+
+                    hapusError(
+                        "guestEmail",
+                        "guestEmailError"
+                    );
+                }
+            );
+
+
+        /* =========================
+           KONFIRMASI PEMESANAN
+        ========================= */
+
+        function confirmBooking() {
+
+            hapusSemuaError();
+
+
+            const guestName =
+                document
+                    .getElementById("guestName")
+                    .value
+                    .trim();
+
+
+            const guestPhone =
+                document
+                    .getElementById("guestPhone")
+                    .value
+                    .trim();
+
+
+            const guestEmail =
+                document
+                    .getElementById("guestEmail")
+                    .value
+                    .trim();
+
+
+            /* VALIDASI */
+
+            const nameError =
+                validasiNama(guestName);
+
+            const phoneError =
+                validasiWhatsApp(guestPhone);
+
+            const emailError =
+                validasiEmail(guestEmail);
+
+
+            let valid =
+                true;
+
+
+            /* NAMA */
+
+            if (nameError) {
+
+                tampilkanError(
+                    "guestName",
+                    "guestNameError",
+                    nameError
+                );
+
+                valid =
+                    false;
+            }
+
+
+            /* WHATSAPP */
+
+            if (phoneError) {
+
+                tampilkanError(
+                    "guestPhone",
+                    "guestPhoneError",
+                    phoneError
+                );
+
+                valid =
+                    false;
+            }
+
+
+            /* EMAIL */
+
+            if (emailError) {
+
+                tampilkanError(
+                    "guestEmail",
+                    "guestEmailError",
+                    emailError
+                );
+
+                valid =
+                    false;
+            }
+
+
+            /* =========================
+               JIKA ADA ERROR
+            ========================= */
+
+            if (!valid) {
+
+                const errorPertama =
+                    document.querySelector(
+                        ".input-error"
+                    );
+
+
+                if (errorPertama) {
+
+                    errorPertama.focus();
+
+                    errorPertama.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+
+
+                return;
+            }
+
+
+            /* =========================
+               BERSIHKAN NOMOR WHATSAPP
+            ========================= */
+
+            const nomorWhatsAppBersih =
+                guestPhone.replace(
+                    /[\s\-()]/g,
+                    ""
+                );
+
+
+            /* =========================
+               SIMPAN DATA TAMU
+            ========================= */
+
+            localStorage.setItem(
+                "kenaGuestName",
+                guestName
+            );
+
+
+            localStorage.setItem(
+                "kenaGuestPhone",
+                nomorWhatsAppBersih
+            );
+
+
+            /*
+                Email opsional.
+
+                Jika diisi:
+                simpan email.
+
+                Jika kosong:
+                hapus email booking sebelumnya.
+            */
+
+            if (guestEmail !== "") {
+
+                localStorage.setItem(
+                    "kenaGuestEmail",
+                    guestEmail
+                );
+
+            } else {
+
+                localStorage.removeItem(
+                    "kenaGuestEmail"
+                );
+            }
+
+
+            /* =========================
+               KODE BOOKING BARU
+            ========================= */
+
+            localStorage.removeItem(
+                "kenaBookingCode"
+            );
+
+
+            /* =========================
+               MENUJU SUCCESS
+            ========================= */
+
+            window.location.href =
+                "success.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

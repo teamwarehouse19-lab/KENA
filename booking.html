@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Reservasi | KENA Nature Cabins</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #f4f1e9;
+      color: #183025;
+    }
+
+    header {
+      background: #173326;
+      color: white;
+      padding: 22px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: Georgia, serif;
+      font-size: 28px;
+      letter-spacing: 8px;
+    }
+
+    .back {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    main {
+      max-width: 760px;
+      margin: auto;
+      padding: 50px 22px;
+    }
+
+    .step {
+      color: #9a7a4c;
+      font-size: 12px;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: Georgia, serif;
+      font-weight: normal;
+      font-size: 46px;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      color: #68756e;
+      line-height: 1.6;
+      margin-bottom: 35px;
+    }
+
+    .booking-card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .dates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 9px;
+    }
+
+    input {
+      width: 100%;
+      padding: 16px;
+      border: 1px solid #d7d7d0;
+      border-radius: 12px;
+      font-size: 16px;
+      color: #183025;
+      background: #fafaf7;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #173326;
+      background: white;
+    }
+
+    .summary {
+      margin-top: 25px;
+      padding-top: 22px;
+      border-top: 1px solid #e6e3dc;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 28px;
+      border: none;
+      background: #173326;
+      color: white;
+      padding: 18px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #234a38;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 20px;
+      }
+
+      .logo {
+        font-size: 25px;
+        letter-spacing: 7px;
+      }
+
+      .back {
+        font-size: 11px;
+      }
+
+      main {
+        padding: 35px 18px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .dates {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-card {
+        padding: 22px;
+      }
+
+      .summary {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">KENA</div>
+
+  <a class="back" href="index.html">
+    ← BERANDA
+  </a>
+</header>
+
+
+<main>
+
+  <div class="step">
+    LANGKAH 01 · RENCANA MENGINAP
+  </div>
+
+  <h1>
+    Kapan Anda akan menginap?
+  </h1>
+
+  <p class="subtitle">
+    Pilih tanggal check-in dan check-out untuk melihat kabin yang tersedia.
+  </p>
+
+
+  <div class="booking-card">
+
+    <div class="dates">
+
+      <div>
+        <label for="checkin">
+          CHECK-IN
+        </label>
+
+        <input
+          type="date"
+          id="checkin"
+        >
+      </div>
+
+
+      <div>
+        <label for="checkout">
+          CHECK-OUT
+        </label>
+
+        <input
+          type="date"
+          id="checkout"
+        >
+      </div>
+
+    </div>
+
+
+    <div class="summary">
+      <span>🌲 Baturraden</span>
+      <span>👤 2 Tamu</span>
+      <span>🏡 Kabin Deluxe</span>
+    </div>
+
+
+    <button onclick="continueBooking()">
+      CEK KETERSEDIAAN →
+    </button>
+
+  </div>
+
+</main>
+
+
+<script>
+
+  const today =
+    new Date().toISOString().split("T")[0];
+
+
+  document.getElementById("checkin").min =
+    today;
+
+  document.getElementById("checkout").min =
+    today;
+
+
+  document
+    .getElementById("checkin")
+    .addEventListener("change", function () {
+
+      document.getElementById("checkout").min =
+        this.value;
+    });
+
+
+  function continueBooking() {
+
+    const checkin =
+      document.getElementById("checkin").value;
+
+    const checkout =
+      document.getElementById("checkout").value;
+
+
+    if (!checkin || !checkout) {
+
+      alert(
+        "Silakan pilih tanggal check-in dan check-out."
+      );
+
+      return;
+    }
+
+
+    if (checkout <= checkin) {
+
+      alert(
+        "Tanggal check-out harus setelah tanggal check-in."
+      );
+
+      return;
+    }
+
+
+    localStorage.setItem(
+      "kenaCheckin",
+      checkin
+    );
+
+    localStorage.setItem(
+      "kenaCheckout",
+      checkout
+    );
+
+
+    window.location.href =
+      "cabins.html";
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kai Cabin | KENA</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f1e9;
+            color: #193326;
+        }
+
+        /* HEADER */
+
+        .header {
+            height: 82px;
+            background: #193326;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 45px;
+            color: white;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            letter-spacing: 8px;
+        }
+
+        .back {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 520px;
+            padding: 65px 8%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .cabin-image {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.13);
+        }
+
+        .tag {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #9a7743;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 64px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            color: #617068;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 30px;
+            max-width: 520px;
+        }
+
+        .features {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 22px 0;
+            border-top: 1px solid #d8d4ca;
+            border-bottom: 1px solid #d8d4ca;
+            margin-bottom: 28px;
+            font-size: 14px;
+        }
+
+        .price-small {
+            color: #6c756f;
+            font-size: 14px;
+        }
+
+        .price {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 5px 0 25px;
+        }
+
+        .price span {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            color: #6c756f;
+        }
+
+        .book-button {
+            display: inline-block;
+            background: #193326;
+            color: white;
+            padding: 18px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+
+        .book-button:hover {
+            transform: translateY(-2px);
+            background: #274b39;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 35px 20px;
+            }
+
+            .cabin-image {
+                height: 350px;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .header {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            KENA
+        </div>
+
+        <a href="cabins.html" class="back">
+            ← KEMBALI KE KABIN
+        </a>
+
+    </header>
+
+
+    <main class="hero">
+
+        <div>
+
+            <img
+                class="cabin-image"
+                src="https://images.unsplash.com/photo-1520984032042-162d526883e0?auto=format&fit=crop&w=900&q=80"
+                alt="Kai Cabin"
+            >
+
+        </div>
+
+
+        <section>
+
+            <div class="tag">
+                KABIN DELUXE · BATURRADEN
+            </div>
+
+            <h1>
+                Kai
+            </h1>
+
+            <p class="description">
+                Kabin pribadi yang tenang, dirancang untuk menikmati pagi
+                yang santai dan malam yang damai di tengah alam.
+                Kai menawarkan suasana hangat dan nyaman bagi tamu
+                yang ingin beristirahat, kembali dekat dengan alam,
+                dan menikmati ketenangan Baturraden.
+            </p>
+
+
+            <div class="features">
+
+                <span>
+                    👤 2 Tamu
+                </span>
+
+                <span>
+                    🛏 1 Tempat Tidur
+                </span>
+
+                <span>
+                    ♨ Bathtub
+                </span>
+
+                <span>
+                    🌲 Pemandangan Hutan
+                </span>
+
+            </div>
+
+
+            <div class="price-small">
+                Mulai dari
+            </div>
+
+
+            <div class="price">
+                Rp 1.250.000
+                <span>/ malam</span>
+            </div>
+
+
+            <a
+                href="#"
+                class="book-button"
+                onclick="pilihKai(event)"
+            >
+                PILIH KAI →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function pilihKai(event) {
+
+            event.preventDefault();
+
+            /*
+                Simpan pilihan kabin terbaru.
+                Ini akan mengganti kabin dari
+                booking sebelumnya.
+            */
+
+            localStorage.setItem(
+                "kenaCabin",
+                "Kai"
+            );
+
+
+            /*
+                Simpan harga Kai.
+            */
+
+            localStorage.setItem(
+                "kenaPrice",
+                "1250000"
+            );
+
+
+            /*
+                Hapus kode booking lama supaya
+                reservasi baru mendapat kode baru.
+            */
+
+            localStorage.removeItem(
+                "kenaBookingCode"
+            );
+
+
+            /*
+                Lanjut ke checkout.
+            */
+
+            window.location.href =
+                "checkout.html";
+        }
+
+    </script>
+
+</body>
+
+</html>
