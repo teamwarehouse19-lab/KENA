@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -13,6 +14,12 @@
       padding: 0;
     }
 
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       min-height: 100vh;
       font-family: Arial, sans-serif;
@@ -20,37 +27,52 @@
       color: #183025;
     }
 
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
+      width: 100%;
       background: #173326;
       color: white;
       padding: 22px 25px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
     }
 
     .logo {
       font-family: Georgia, serif;
       font-size: 28px;
       letter-spacing: 8px;
+      white-space: nowrap;
     }
 
     .back {
       color: white;
       text-decoration: none;
       font-size: 13px;
+      white-space: nowrap;
     }
 
+    /* =========================
+       MAIN
+    ========================= */
+
     main {
+      width: 100%;
       max-width: 760px;
-      margin: auto;
-      padding: 50px 22px;
+      margin: 0 auto;
+      padding: 50px 22px 70px;
     }
 
     .step {
       color: #9a7a4c;
       font-size: 12px;
       letter-spacing: 3px;
+      line-height: 1.5;
       margin-bottom: 12px;
     }
 
@@ -58,16 +80,24 @@
       font-family: Georgia, serif;
       font-weight: normal;
       font-size: 46px;
-      margin-bottom: 12px;
+      line-height: 1.08;
+      margin-bottom: 16px;
     }
 
     .subtitle {
       color: #68756e;
-      line-height: 1.6;
+      line-height: 1.65;
       margin-bottom: 35px;
+      font-size: 16px;
     }
 
+    /* =========================
+       BOOKING CARD
+    ========================= */
+
     .booking-card {
+      width: 100%;
+      min-width: 0;
       background: white;
       border-radius: 22px;
       padding: 28px;
@@ -75,9 +105,15 @@
     }
 
     .dates {
+      width: 100%;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 18px;
+    }
+
+    .dates > div {
+      width: 100%;
+      min-width: 0;
     }
 
     label {
@@ -88,43 +124,74 @@
       margin-bottom: 9px;
     }
 
-    input {
+    input[type="date"] {
+      display: block;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+
       padding: 16px;
       border: 1px solid #d7d7d0;
       border-radius: 12px;
+
+      font-family: Arial, sans-serif;
       font-size: 16px;
       color: #183025;
+
       background: #fafaf7;
       outline: none;
+
+      -webkit-appearance: none;
+      appearance: none;
     }
 
-    input:focus {
+    input[type="date"]:focus {
       border-color: #173326;
       background: white;
     }
 
+    /* =========================
+       SUMMARY
+    ========================= */
+
     .summary {
       margin-top: 25px;
       padding-top: 22px;
+
       border-top: 1px solid #e6e3dc;
+
       display: flex;
       justify-content: space-between;
+      align-items: center;
+
       gap: 15px;
+
       font-size: 14px;
     }
+
+    .summary span {
+      white-space: nowrap;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
 
     button {
       width: 100%;
       margin-top: 28px;
+
       border: none;
       background: #173326;
       color: white;
-      padding: 18px;
+
+      padding: 18px 20px;
       border-radius: 50px;
+
       font-size: 14px;
       font-weight: bold;
       letter-spacing: 1px;
+
       cursor: pointer;
       transition: 0.2s;
     }
@@ -134,15 +201,43 @@
       transform: translateY(-2px);
     }
 
-    @media (max-width: 600px) {
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 700px) {
+
+      main {
+        padding: 42px 20px 60px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .dates {
+        grid-template-columns: 1fr;
+      }
+
+      .summary {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 480px) {
 
       header {
-        padding: 20px;
+        padding: 18px 20px;
       }
 
       .logo {
-        font-size: 25px;
-        letter-spacing: 7px;
+        font-size: 24px;
+        letter-spacing: 6px;
       }
 
       .back {
@@ -150,23 +245,116 @@
       }
 
       main {
-        padding: 35px 18px;
+        padding: 32px 18px 50px;
+      }
+
+      .step {
+        font-size: 10px;
+        letter-spacing: 2.2px;
+        margin-bottom: 14px;
       }
 
       h1 {
-        font-size: 38px;
+        font-size: 36px;
+        line-height: 1.08;
+        margin-bottom: 16px;
       }
 
-      .dates {
-        grid-template-columns: 1fr;
+      .subtitle {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 28px;
       }
 
       .booking-card {
-        padding: 22px;
+        width: 100%;
+        padding: 22px 18px;
+        border-radius: 20px;
+      }
+
+      .dates {
+        width: 100%;
+        display: block;
+      }
+
+      .dates > div {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .dates > div:last-child {
+        margin-bottom: 0;
+      }
+
+      label {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      input[type="date"] {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        height: 56px;
+
+        padding: 0 14px;
+
+        font-size: 16px;
+        border-radius: 12px;
+
+        overflow: hidden;
       }
 
       .summary {
-        flex-direction: column;
+        margin-top: 24px;
+        padding-top: 20px;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+
+        font-size: 14px;
+      }
+
+      .summary span {
+        white-space: normal;
+      }
+
+      button {
+        margin-top: 24px;
+        min-height: 56px;
+
+        padding: 16px 14px;
+
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+    }
+
+    /* HP sangat kecil */
+
+    @media (max-width: 360px) {
+
+      header {
+        padding: 16px;
+      }
+
+      .logo {
+        font-size: 21px;
+        letter-spacing: 5px;
+      }
+
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .booking-card {
+        padding: 20px 15px;
       }
     }
   </style>
@@ -175,11 +363,15 @@
 <body>
 
 <header>
-  <div class="logo">KENA</div>
+
+  <div class="logo">
+    KENA
+  </div>
 
   <a class="back" href="index.html">
     ← BERANDA
   </a>
+
 </header>
 
 
@@ -203,6 +395,7 @@
     <div class="dates">
 
       <div>
+
         <label for="checkin">
           CHECK-IN
         </label>
@@ -211,10 +404,12 @@
           type="date"
           id="checkin"
         >
+
       </div>
 
 
       <div>
+
         <label for="checkout">
           CHECK-OUT
         </label>
@@ -223,19 +418,27 @@
           type="date"
           id="checkout"
         >
+
       </div>
 
     </div>
 
 
     <div class="summary">
+
       <span>🌲 Baturraden</span>
+
       <span>👤 2 Tamu</span>
+
       <span>🏡 Kabin Deluxe</span>
+
     </div>
 
 
-    <button onclick="continueBooking()">
+    <button
+      type="button"
+      onclick="continueBooking()"
+    >
       CEK KETERSEDIAAN →
     </button>
 
@@ -250,29 +453,41 @@
     new Date().toISOString().split("T")[0];
 
 
-  document.getElementById("checkin").min =
-    today;
+  const checkinInput =
+    document.getElementById("checkin");
 
-  document.getElementById("checkout").min =
-    today;
+  const checkoutInput =
+    document.getElementById("checkout");
 
 
-  document
-    .getElementById("checkin")
-    .addEventListener("change", function () {
+  checkinInput.min = today;
+  checkoutInput.min = today;
 
-      document.getElementById("checkout").min =
-        this.value;
-    });
+
+  checkinInput.addEventListener(
+    "change",
+    function () {
+
+      checkoutInput.min = this.value;
+
+      if (
+        checkoutInput.value &&
+        checkoutInput.value <= this.value
+      ) {
+        checkoutInput.value = "";
+      }
+
+    }
+  );
 
 
   function continueBooking() {
 
     const checkin =
-      document.getElementById("checkin").value;
+      checkinInput.value;
 
     const checkout =
-      document.getElementById("checkout").value;
+      checkoutInput.value;
 
 
     if (!checkin || !checkout) {
@@ -314,3 +529,4 @@
 
 </body>
 </html>
+```
